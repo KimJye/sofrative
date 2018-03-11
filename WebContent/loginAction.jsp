@@ -10,11 +10,11 @@
    String pw = request.getParameter("pw");
    
    
-   LoginDB test = LoginDB.getInstance(); //LoginDB 객체를 받아온다 - 생성자가 private라 객체 만들기 불가T
-
+   LoginDB test = LoginDB.getInstance(); 
+	//LoginDB 객체 생성
    
    int result = test.useCheck(id, pw);
-   //result가 -1이면 아이디 없음 0이면 비번 틀림 1이면 로그인!!
+   //result가 -1이면 아이디 없음 0이면 비번 틀림 1이면 로그인
   
    if(result==0){ 
 %>
