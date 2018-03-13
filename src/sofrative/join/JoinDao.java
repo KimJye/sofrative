@@ -1,6 +1,8 @@
 /*
- * 회원정보 삽입 쿼리 메소드
- * 아이디 중복 확인 메소드
+ * getInstance 메소드 : JoinDao 객체을 리턴하는 메소드
+ * insert 메소드 : 회원가입을 위해 필요한 정보를 DB에 저장하며 회원 가입을 시키는 메소드
+ * overlapId 메소드 : 아이디 중복 확인을 위한 메소드
+ * 
  */
 package sofrative.join;
 
@@ -22,6 +24,7 @@ public class JoinDao {
 
 
    public void insert(Connection conn, Member member) throws SQLException{
+	   //회원가입시 필요한 정보를 Member객체에 저장하여 전달받고 DB에 삽입하는 메소드
       try (PreparedStatement pstmt = conn.prepareStatement(
             "insert into member values(?,?,?,?,?,?,?,null)")){
          pstmt.setString(1, member.getId());
@@ -36,6 +39,7 @@ public class JoinDao {
    }
 
    public int overlapId(String id) throws SQLException {
+	   //쿼리문을 이용하여 매개변수로 전달받은 ID가 존재 유무를 확인한 후 정수값을 리턴하는 메소드
       Connection conn = DBUtil.getConnection();
       PreparedStatement pstmt = null;
       ResultSet rs = null;
