@@ -2,7 +2,6 @@
  * getInstance 메소드 : JoinDao 객체을 리턴하는 메소드
  * insert 메소드 : 회원가입을 위해 필요한 정보를 DB에 저장하며 회원 가입을 시키는 메소드
  * overlapId 메소드 : 아이디 중복 확인을 위한 메소드
- * 
  */
 package sofrative.join;
 
