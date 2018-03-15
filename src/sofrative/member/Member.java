@@ -1,7 +1,9 @@
 /*
- * 멤버 정보 getter, setter
- * isEmpty 메소드
- * 비밀번호 확인 메소드
+ * 멤버 정보 getter, setter 메소드 
+ * idregEngNum() 메소드 : 아이디의 조건에 맞는지 확인하는 메소드
+ * pwregEngNum() 메소드 : 비밀번호의 조건에 맞는지 확인하는 메소드 
+ * cpregEngNum() 메소드 : 입력한 비밀번호와 확인 비밀번호의 일치여부를 검사하기 위한 메소드
+ * 그 외 메소드 : 길이, 공백 확인하는 메소드
  */
 package sofrative.member;
 
@@ -122,8 +124,9 @@ public class Member {
    public boolean phoneIsEmpty() {
       return phone==null ||  phone.isEmpty();
    }
+   
    //유효성 검사(영어소문자,숫자만)
-   public boolean idregEngNum(){//아이디
+   public boolean idregEngNum(){//아이디의 조건에 맞는지 확인하는 메소드
 
       String regEngNum ="^[a-z0-9]$";
 
@@ -132,26 +135,18 @@ public class Member {
       }
       return false;
    }
-   public boolean pwregEngNum(){//비밀번호
+   
+   public boolean pwregEngNum() { //비밀번호의 조건에 맞는지 확인하기 위한 메소드
       String regEngNum ="[^ ]+[a-z]+[0-9]+";
 
       if(!password.matches(regEngNum)){
          return true;
       }
       return false;
-      /*
-      for(int i=0;i<password.length();i++){
-         char ch_pw =password.charAt(i);
-
-         if(!((ch_pw>='a'&& ch_pw<='z')||(ch_pw>='0'&& ch_pw<='9'))){
-            return true;
-         }
-
-      }
-       */
 
    }
-   public boolean cpregEngNum(){//confirmPassword
+   
+   public boolean cpregEngNum(){//입력한 비밀번호와 확인 비밀번호의 일치여부를 검사하기 위한 메소드
 
       String regEngNum ="[^ ]+[a-z]+[0-9]+";
 
@@ -159,17 +154,9 @@ public class Member {
          return true;
       }
       return false;
-      /*
-      for(int i=0;i<confirmPassword.length();i++){
-         char ch_cpw =confirmPassword.charAt(i);
-         if(!(ch_cpw>='a'&& ch_cpw<='z'&&(ch_cpw>='0'&& ch_cpw<='9'))){
-            return true;
-         }else
-            return false;
-      }
-      return false;
-       */
+
    }
+   
    //유효성 검사(공백 사용하지 않기)
    public boolean ngap(){//이름
       if(name.indexOf(" ")>=0){
@@ -177,6 +164,7 @@ public class Member {
       }
       return false;
    }
+   
    public boolean idgap(){//아이디
       if(id.indexOf(" ")>=0){
          return true;
@@ -189,12 +177,14 @@ public class Member {
       }
       return false;
    }
+   
    public boolean cpwgap(){//confirmPassword
       if(confirmPassword.indexOf(" ")>=0){
          return true;
       }
       return false;
    }
+   
    //유효성 검사(길이 체크)
    public boolean nlength(){//이름
       if(name.length()<2){
@@ -202,24 +192,28 @@ public class Member {
       }
       return false;
    }
+   
    public boolean idlength(){//아이디
       if(id.length()<5 || id.length()>12){
          return true;
       }
       return false;
    }
+   
    public boolean pwlength(){//비밀번호
       if(password.length()<8 || password.length()>12){
          return true;
       }
       return false;
    }
+   
    public boolean cpwlength(){//confirmPassword
       if(confirmPassword.length()<8 || confirmPassword.length()>12){
          return true;
       }
       return false;
    }
+   
    public boolean ckphone(){//휴대폰 번호
 
       String regExp ="(01[0-9]{1}[0-9]{3,4}[0-9]{3,4}|02[0-9]{3,4}[0-9]{4})+[^ ]";

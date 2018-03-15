@@ -1,6 +1,13 @@
 package sofrative.message;
-
-import java.sql.Connection;
+/*
+ * getInstance() : MessageDB객체를 리턴하는 메소드
+ * messageInsert () : 해당 교수님의 로그인 여부를 확인한 후, 로그인 되어있으면 학생이 보낸 메세지를 DB에 저장하는 메소드.
+ * getName () : 교수님 이름을 리턴하는 메소드
+ * loginValue() : 해당 교수님의 로그인 여부를 리턴하는 메소드
+ * selectMessage() : 해당 교수님의 DB에 존재하는 메세지 개수를 리턴하는 메소드
+ * deleteMessageAll() : 사용자가 전체삭제 버튼을 클릭했을 때 해당 교수님의 DB에 존재하는 메세지를 모두 삭제하는 메소드 
+ */
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -116,7 +123,7 @@ public class MessageDB {
 		return result;
 	}
 
-	public String loginValue(String id){
+	public String loginValue(String id){//해당 교수님의 로그인 여부를 리턴하는 메소드
 
 		Connection connection = null;
 		PreparedStatement stmt = null;
@@ -161,12 +168,8 @@ public class MessageDB {
 			rs = stmt.executeQuery();
 
 			rs.next();
-			
-			
-			
-			result =rs.getInt(1); //총 글의 갯수를 리턴하는 메소드 
-			
-			
+
+			result =rs.getInt(1); 
 
 		}
 		catch (SQLException ex) {
@@ -180,7 +183,7 @@ public class MessageDB {
 		return result;
 	}
 	
-	public void deleteMessageAll(String id) throws SQLException{
+	public void deleteMessageAll(String id) throws SQLException{//메세지 전체 삭제를 위한 메소드
 		Connection conn = DBUtil.getConnection();
 		Statement stmt = null;
 		
