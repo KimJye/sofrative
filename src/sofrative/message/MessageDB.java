@@ -1,4 +1,12 @@
 package sofrative.message;
+
+import java.sql.Connection; 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import sofrative.DB.DBUtil;
+
 /*
  * getInstance() : MessageDB객체를 리턴하는 메소드
  * messageInsert () : 해당 교수님의 로그인 여부를 확인한 후, 로그인 되어있으면 학생이 보낸 메세지를 DB에 저장하는 메소드.
@@ -7,13 +15,6 @@ package sofrative.message;
  * selectMessage() : 해당 교수님의 DB에 존재하는 메세지 개수를 리턴하는 메소드
  * deleteMessageAll() : 사용자가 전체삭제 버튼을 클릭했을 때 해당 교수님의 DB에 존재하는 메세지를 모두 삭제하는 메소드 
  */
-import java.sql.Connection; 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import sofrative.DB.DBUtil;
 
 public class MessageDB {
 

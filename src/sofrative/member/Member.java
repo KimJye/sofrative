@@ -1,12 +1,11 @@
+package sofrative.member;
 /*
- * 멤버 정보 getter, setter 메소드 
+ * 멤버 정보 getter, setter 메소드  
  * idregEngNum() 메소드 : 아이디의 조건에 맞는지 확인하는 메소드
  * pwregEngNum() 메소드 : 비밀번호의 조건에 맞는지 확인하는 메소드 
  * cpregEngNum() 메소드 : 입력한 비밀번호와 확인 비밀번호의 일치여부를 검사하기 위한 메소드
  * 그 외 메소드 : 길이, 공백 확인하는 메소드
  */
-package sofrative.member;
-
 public class Member {
 
    private String name;
