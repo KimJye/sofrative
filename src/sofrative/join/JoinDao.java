@@ -11,12 +11,14 @@ import sofrative.member.Member;
  * getInstance 메소드 : JoinDao 객체을 리턴하는 메소드
  * insert 메소드 : 회원가입을 위해 필요한 정보를 DB에 저장하며 회원 가입을 시키는 메소드
  * overlapId 메소드 : 아이디 중복 확인을 위한 메소드
+ * checkProf 메소드 : 교수 확인을 위한 비밀번호 확인 메소드
  */
 
 public class JoinDao {
-
+	
+   private final String PROF_PW = "1234skhu";//교수 확인을 위한 비밀번호
    public static JoinDao instance = new JoinDao();
-
+   
    public static JoinDao getInstance() {
       return instance;
    }
@@ -60,4 +62,14 @@ public class JoinDao {
       }
       return check;
    }
+   
+   public int checkProf(String pw) {
+	      if(PROF_PW.equals(pw)) { 
+	         return 1;
+	      }
+	      else {
+	         return -1;
+	      }
+	   }
+
 }
